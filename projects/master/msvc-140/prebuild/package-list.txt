@@ -1,6 +1,6 @@
 http://softagalleria.net/download/dirent/dirent-1.21.zip
 https://www.cryptopp.com/cryptopp563.zip
-http://download.icu-project.org/files/icu4c/56.1/icu4c-56_1-src.zip
+https://download.gforge.liris.cnrs.fr/meppbin/windows/vs2015/PLEIAD/src/icu-56.1.zip
 https://www.ece.uvic.ca/~frodo/jasper/software/jasper-1.900.1.zip
 http://downloads.sourceforge.net/project/gnuwin32/readline/5.0-1/readline-5.0-1-src.zip
 
@@ -29,7 +29,7 @@ https://github.com/Nephatrine/libepoxy/archive/v1.3.1_neph-3.tar.gz
 
 http://tukaani.org/xz/xz-5.2.2.tar.xz
 ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng16/libpng-1.6.20.tar.xz
-http://ftp.acc.umu.se/pub/GNOME/sources/gstreamer/1.6/gstreamer-1.6.1.tar.xz
+http://ftp.acc.umu.se/pub/GNOME/sources/gstreamer/1.4/gstreamer-1.4.4.tar.xz
 http://ftp.acc.umu.se/pub/GNOME/sources/gstreamermm/1.4/gstreamermm-1.4.3.tar.xz
 http://ftp.acc.umu.se/pub/GNOME/sources/glib/2.46/glib-2.46.2.tar.xz
 http://ftp.acc.umu.se/pub/GNOME/sources/atk/2.18/atk-2.18.0.tar.xz
