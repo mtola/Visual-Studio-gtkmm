@@ -4,70 +4,71 @@ PACKAGE
 ****************************
 #undefined:
 
-bzip
-ICU
-
+DR - bzip2 (ATTENTION : AVEC aussi en plus les 2x configurations DLL)
+DR - ICU
 
 ****************************
 
-libreadline
-libeditline
-libbz2
-dirnet
-unistd
-iconv
-zlib
-epoxy
-ffi
-libjpeg-turbo
-expat
-freeglut
-pixman
+NO - libreadline
+NO - libeditline
+
+DR - libbz2 (AVEC bzip2)
+DR - dirent
+DR - unistd
+DR - iconv
+DR - zlib
+DR - epoxy (ATTENTION : faire les 2x configurations *_WGL et IMPORTANT faire projet par projet, un par un : generated, shared, static puis enfin install)
+---> DR - ffi (FAIRE avec ce qui est indiqué dans msvc-140\Readme\libffi-3.0.13.txt)
+DR - libjpeg-turbo (UTILISATION de cmake pour générer 2x .h)
+DR - expat
+DR - freeglut (UTILISATION de cmake pour générer 1x .rc)
+DR - pixman
+	-png
 
 *****************************
 
-pcre
+DR - pcre (ET AUSSI pcre2)
 	-bzip2 (optional)
 	-readline (optional)
 	-editline (optional)
 
-gettext
+DR - gettext
 	-iconv (circular dependency)
 	-expat (optional, configure script will not check for it /??)
 	-libxml2 (optional, give also path for croco)
 
-jasper
+DR - jasper
 	-libjpeg-turbo
     -freeglut
 
-png
+DR - png
 	-zlib
 
-tiff
+DR - tiff (MAIS AVANT faire xz pour lzma et jbigkit pour jbig)
 	-zlib
 	-libjpeg-turbo
 
-Freetype
+DR - Freetype (!!! RAJOUTER 3 lignes 284<->286 dans D:\Github\Visual-Studio-gtkmm\projects\freetype-2.6.2\include\freetype\config\ftoption.h, cf. ftoption.rar !!!)
 	-harfbuzz (optional circular dependency, [freetype -> harfbuzz -> freetype])
 	-icu (optional)
 
-glib
+DR - glib (ATTENTION : faire les 2x configurations ExtPCRE)
 	-libffi
 	-zlib
 	-gettext
 	-pcre (if building with extern pcre)
 	
-harfbuzz (rebuild freetype with harbuzz support)
+DR - harfbuzz (rebuild freetype with harbuzz support)
 	-freetype
 	-libjpeg-turbo
 	-glib
 
-Fontconfig
+DR - Fontconfig (MAIS fc-cache.exe crash en debug et en release, à priori normal...) (A PRIORI ? changer un include dans fontconfig.h après compilation dans le dossier install)
 	-libxml2 or expat
 	-freetype
 	-harfbuzz
 
-gdk-pixbuf
+DR - gdk-pixbuf
 	-libpng
 	-zlib
 	-glib
@@ -77,11 +78,11 @@ gdk-pixbuf
 	-jasper
 	-tiff
 
-atk
+DR - atk
 	-glib
 	-intl
 
-cairo
+DR - cairo (ATTENTION : faire les 2x configurations *_FT)
 	-zlib
 	-libpng
 	-pixman
@@ -95,37 +96,39 @@ cairo
 
 	opengl (if build with opengl extensions)
 
-Pango
+DR - Pango
 	-glib
 	-harfbuz
 	-cairo
 	-fontconfig (optional, cairo must be build with fontconfig too)
 
-gtk+
+DR - gtk+ (MAIS PB AVEC gtk-update-icon-cache et les 2 thèmes ?)
 	-pango
 	-atk
 	-gdk-pixbuf
 	-epoxy (if building gtk+ 3.15.x)
 
-goocanvas
+DR - goocanvas
 	-gtk+
 
-gstreamer
-	...
+DR - gstreamer (MAIS AVANT faire libxml) (MAIS pas de gstcoreelements car erreur ?)
+	-libxml
 
-libsigc++
-glibmm
-	...
-cairomm
-	...
-pangomm
-	...
-atkmm
-	...
-gtkmm
-	...
-goocanvasmm
-	...
+DR - libsigc++
+
+DR - glibmm
+
+DR - cairomm (MAIS AVANT faire boost) (ATTENTION : faire les 2x configurations *_FT)
+	-boost (ATTENTION : faire debug et release MAIS aussi faire en plus les 2x configurations DLL <-> puis refaire debug et release ? ignorer les erreurs d'install en release) <-- REVOIR
+
+DR - pangomm
+
+DR - atkmm (SAUF erreur sur un programme de test...)
+
+!!! gtkmm (commenter ligne 8 dans msvc-140\gtkmm\gtkmmconfig.h) (MAIS PB LINK / gendef -> gtkmm.def : error LNK2001: symbole externe non résolu _local_stdio_printf_options) (1 symbole non résolu en release mais 719 en debug !!!)
+
+!!! D MAIS PAS R - goocanvasmm (SAUF erreur programmes de test MAIS normal cr DEPRECATED API...)
+
+---
+
 gstreamermm
-
-
