@@ -10,7 +10,7 @@ DR - ICU
 ****************************
 
 NO - libreadline
-NO - libeditline
+ESSAYER ? - libeditline
 
 DR - libbz2 (AVEC bzip2)
 DR - dirent
@@ -63,7 +63,7 @@ DR - harfbuzz (rebuild freetype with harbuzz support)
 	-libjpeg-turbo
 	-glib
 
-DR - Fontconfig (MAIS fc-cache.exe crash en debug et en release, à priori normal...) (A PRIORI ? changer un include dans fontconfig.h après compilation dans le dossier install)
+NO - DR - Fontconfig (MAIS fc-cache.exe crash en debug et en release, à priori normal...) (A PRIORI ? changer un include dans fontconfig.h après compilation dans le dossier install)
 	-libxml2 or expat
 	-freetype
 	-harfbuzz
@@ -111,7 +111,7 @@ DR - gtk+ (MAIS PB AVEC gtk-update-icon-cache et les 2 thèmes ?)
 DR - goocanvas
 	-gtk+
 
-DR - gstreamer (MAIS AVANT faire libxml) (MAIS pas de gstcoreelements car erreur ?)
+STOP - DR - gstreamer (MAIS AVANT faire libxml) (MAIS pas de gstcoreelements car erreur ?)
 	-libxml
 
 DR - libsigc++
@@ -131,4 +131,4 @@ DR - atkmm (SAUF erreur sur un programme de test...)
 
 ---
 
-gstreamermm
+STOP - gstreamermm
