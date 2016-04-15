@@ -4,61 +4,61 @@ PACKAGE
 ****************************
 #undefined:
 
-DR - bzip2 (ATTENTION : AVEC aussi en plus les 2x configurations DLL)
-DR - ICU
+2DR - bzip2 (ATTENTION : AVEC aussi en plus les 2x configurations DLL)
+2DR - ICU
 
 ****************************
 
 NO - libreadline
 ESSAYER ? - libeditline
 
-DR - libbz2 (AVEC bzip2)
-DR - dirent
-DR - unistd
-DR - iconv
-DR - zlib
-DR - epoxy (ATTENTION : faire les 2x configurations *_WGL et IMPORTANT faire projet par projet, un par un : generated, shared, static puis enfin install)
----> DR - ffi (FAIRE avec ce qui est indiqué dans msvc-140\Readme\libffi-3.0.13.txt)
-DR - libjpeg-turbo (UTILISATION de cmake pour générer 2x .h)
-DR - expat
-DR - freeglut (UTILISATION de cmake pour générer 1x .rc)
-DR - pixman
+2DR - libbz2 (AVEC bzip2)
+2DR - dirent
+2DR - unistd
+2DR - iconv
+2DR - zlib
+2DR - epoxy (ATTENTION : faire les 2x configurations *_WGL et IMPORTANT faire projet par projet, un par un : generated, shared, static puis enfin install)
+---> 2DR - ffi (FAIRE avec ce qui est indiqué dans msvc-140\Readme\libffi-3.0.13.txt)
+2DR - libjpeg-turbo (UTILISATION de cmake pour générer 2x .h)
+2DR - expat
+2DR - freeglut (UTILISATION de cmake pour générer 1x .rc)
+2DR - pixman
 	-png
 
 *****************************
 
-DR - pcre (ET AUSSI pcre2)
+2DR - pcre (ET AUSSI pcre2)
 	-bzip2 (optional)
 	-readline (optional)
 	-editline (optional)
 
-DR - gettext
+2DR - gettext
 	-iconv (circular dependency)
 	-expat (optional, configure script will not check for it /??)
 	-libxml2 (optional, give also path for croco)
 
-DR - jasper
+2DR - jasper
 	-libjpeg-turbo
     -freeglut
 
-DR - png
+2DR - png
 	-zlib
 
-DR - tiff (MAIS AVANT faire xz pour lzma et jbigkit pour jbig)
+2DR - tiff (MAIS AVANT faire xz pour lzma et jbigkit pour jbig)
 	-zlib
 	-libjpeg-turbo
 
-DR - Freetype (!!! RAJOUTER 3 lignes 284<->286 dans D:\Github\Visual-Studio-gtkmm\projects\freetype-2.6.2\include\freetype\config\ftoption.h, cf. ftoption.rar !!!)
+2DR - Freetype (!!! RAJOUTER 3 lignes 284<->286 dans D:\Github\Visual-Studio-gtkmm\projects\freetype-2.6.2\include\freetype\config\ftoption.h, cf. ftoption.rar !!!)
 	-harfbuzz (optional circular dependency, [freetype -> harfbuzz -> freetype])
 	-icu (optional)
 
-DR - glib (ATTENTION : faire les 2x configurations ExtPCRE)
+2DR - glib (ATTENTION : faire les 2x configurations ExtPCRE)
 	-libffi
 	-zlib
 	-gettext
 	-pcre (if building with extern pcre)
 	
-DR - harfbuzz (rebuild freetype with harbuzz support)
+2DR - harfbuzz (rebuild freetype with harbuzz support)
 	-freetype
 	-libjpeg-turbo
 	-glib
@@ -68,7 +68,7 @@ NO - DR - Fontconfig (MAIS fc-cache.exe crash en debug et en release, à priori 
 	-freetype
 	-harfbuzz
 
-DR - gdk-pixbuf
+2DR - gdk-pixbuf
 	-libpng
 	-zlib
 	-glib
@@ -78,11 +78,11 @@ DR - gdk-pixbuf
 	-jasper
 	-tiff
 
-DR - atk
+2DR - atk
 	-glib
 	-intl
 
-DR - cairo (ATTENTION : faire les 2x configurations *_FT)
+2DR - cairo (ATTENTION : faire les 2x configurations *_FT)
 	-zlib
 	-libpng
 	-pixman
@@ -96,38 +96,43 @@ DR - cairo (ATTENTION : faire les 2x configurations *_FT)
 
 	opengl (if build with opengl extensions)
 
-DR - Pango
+2DR - Pango
 	-glib
 	-harfbuz
 	-cairo
 	-fontconfig (optional, cairo must be build with fontconfig too)
 
-DR - gtk+ (MAIS PB AVEC gtk-update-icon-cache et les 2 thèmes ?)
+2DR - gtk+ (MAIS PB AVEC gtk-update-icon-cache et les 2 thèmes ?)
 	-pango
 	-atk
 	-gdk-pixbuf
 	-epoxy (if building gtk+ 3.15.x)
 
-DR - goocanvas
+NO - DR - goocanvas
 	-gtk+
 
 STOP - DR - gstreamer (MAIS AVANT faire libxml) (MAIS pas de gstcoreelements car erreur ?)
 	-libxml
 
-DR - libsigc++
+2DR - libsigc++
 
-DR - glibmm
+2DR - glibmm
 
-DR - cairomm (MAIS AVANT faire boost) (ATTENTION : faire les 2x configurations *_FT)
+TEMP - DR - cairomm (MAIS AVANT faire boost) (ATTENTION : faire les 2x configurations *_FT)
 	-boost (ATTENTION : faire debug et release MAIS aussi faire en plus les 2x configurations DLL <-> puis refaire debug et release ? ignorer les erreurs d'install en release) <-- REVOIR
 
-DR - pangomm
+2DR - pangomm
 
-DR - atkmm (SAUF erreur sur un programme de test...)
+2DR - atkmm (SAUF erreur sur un programme de test...)
 
-!!! gtkmm (commenter ligne 8 dans msvc-140\gtkmm\gtkmmconfig.h) (MAIS PB LINK / gendef -> gtkmm.def : error LNK2001: symbole externe non résolu _local_stdio_printf_options) (1 symbole non résolu en release mais 719 en debug !!!)
+TEMP - DR - gtkmm (commenter ligne 8 dans msvc-140\gtkmm\gtkmmconfig.h) (PUIS FAIRE : gendef... et .def... avec le REM)
+PUIS:
+ - glib-compile-schemas.exe
+ - dossier gtkmm-3.0 pour les sources des démos
+ - icons
+ - locale ???
 
-!!! D MAIS PAS R - goocanvasmm (SAUF erreur programmes de test MAIS normal cr DEPRECATED API...)
+NO - goocanvasmm (SAUF erreur programmes de test MAIS normal cr DEPRECATED API...)
 
 ---
 

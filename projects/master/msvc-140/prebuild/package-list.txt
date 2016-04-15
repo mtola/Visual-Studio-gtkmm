@@ -1,6 +1,6 @@
 http://softagalleria.net/download/dirent/dirent-1.21.zip
 https://www.cryptopp.com/cryptopp563.zip
-https://download.gforge.liris.cnrs.fr/meppbin/windows/vs2015/PLEIAD/src/icu-56.1.zip
+https://download.gforge.liris.cnrs.fr/meppbin/windows/vs2015/PLEIAD/packages/clean/src/icu-56.1.zip
 https://www.ece.uvic.ca/~frodo/jasper/software/jasper-1.900.1.zip
 http://downloads.sourceforge.net/project/gnuwin32/readline/5.0-1/readline-5.0-1-src.zip
 
